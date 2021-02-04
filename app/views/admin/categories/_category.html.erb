@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <p><%= category.name %></p>
+  </td>
+  <td>
+    <%= category.products.length %>
+  </td>
+  <td>
+    <%= humanized_money_with_symbol category.products.sum("price_cents") %>
+  </td>
+</tr>
