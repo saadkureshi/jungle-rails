@@ -15,17 +15,19 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
         price: 64.99
       )
     end
+    puts page.html.inspect
   end
 
-  scenario "They should be able to click on a product and see a product detail page" do
+  scenario "Cart value updates in nav bar when user adds a product to cart" do
     # ACT
     visit root_path
-    first('.product').click_link('Details')
+    first('.product').click_button('Add')
 
     # DEBUG
     # save_screenshot
 
     # VERIFY
-    expect(page).to have_css '.products-show'
+    expect(page).to have_content 'My Cart (1)'
+    save_screenshot
   end
 end
