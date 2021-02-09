@@ -15,14 +15,18 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
         price: 64.99
       )
     end
+    puts page.html.inspect
   end
 
-  scenario "They see all products" do
+  scenario "They should be able to click on a product and see a product detail page" do
+    # ACT
     visit root_path
+    first('.product').click_link('Details')
 
-    # commented out b/c it's for debugging only
-    # save_and_open_screenshot
+    # DEBUG
+    save_screenshot
 
-    expect(page).to have_css 'article.product', count: 10
+    # VERIFY
+    expect(page).to have_css '.products-show'
   end
 end
