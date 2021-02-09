@@ -15,7 +15,6 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
         price: 64.99
       )
     end
-    puts page.html.inspect
   end
 
   scenario "Cart value updates in nav bar when user adds a product to cart" do
@@ -28,6 +27,6 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
 
     # VERIFY
     expect(page).to have_content 'My Cart (1)'
-    save_screenshot
+    # save_screenshot
   end
 end
